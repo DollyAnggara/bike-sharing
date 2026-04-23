@@ -2,6 +2,10 @@
 
 Proyek ini menganalisis pola peminjaman sepeda dari dataset bike-sharing, lalu menyajikannya dalam dashboard interaktif berbasis Streamlit.
 
+## Dashboard Online
+
+https://bikesharing12.streamlit.app/
+
 ## Pertanyaan Bisnis
 
 1. Bagaimana perbedaan rata-rata dan total jumlah peminjaman sepeda (cnt) antara hari libur (holiday), hari kerja (workingday), dan setiap hari dalam seminggu (weekday)?
