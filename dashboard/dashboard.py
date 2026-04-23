@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+from pathlib import Path
 from babel.numbers import format_currency
 
 sns.set(style='dark')
@@ -113,7 +114,9 @@ def create_hourly_workingday_df(df):
 
 # ==================== MEMUAT DATA ====================
 # Load data gabungan yang sudah dibersihkan
-main_data = pd.read_csv("main_data.csv")
+BASE_DIR = Path(__file__).resolve().parent
+main_data_path = BASE_DIR / "main_data.csv"
+main_data = pd.read_csv(main_data_path)
 
 # Pastikan kolom datetime
 main_data['dteday'] = pd.to_datetime(main_data['dteday'])
