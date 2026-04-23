@@ -1,6 +1,6 @@
 # bike-sharing-dashboard
 
-Proyek ini menganalisis pola peminjaman sepeda dari dataset bike-sharing, lalu menyajikannya dalam dashboard interaktif berbasis Streamlit.
+Proyek ini menganalisis pola peminjaman sepeda dari dataset bike-sharing, lalu menyajikannya dalam dashboard interaktif berbasis Streamlit
 
 ## Dashboard Online
 
