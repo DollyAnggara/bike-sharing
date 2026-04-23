@@ -115,8 +115,28 @@ def create_hourly_workingday_df(df):
 # ==================== MEMUAT DATA ====================
 # Load data gabungan yang sudah dibersihkan
 BASE_DIR = Path(__file__).resolve().parent
-main_data_path = BASE_DIR / "main_data.csv"
-main_data = pd.read_csv(main_data_path)
+
+
+def load_main_data():
+    """Memuat data utama dari lokasi yang paling umum dipakai saat menjalankan app."""
+    candidate_paths = [
+        BASE_DIR / "main_data.csv",
+        Path.cwd() / "main_data.csv",
+        BASE_DIR.parent / "main_data.csv",
+    ]
+
+    for path in candidate_paths:
+        if path.exists():
+            return pd.read_csv(path)
+
+    searched_paths = "\n".join(f"- {path}" for path in candidate_paths)
+    raise FileNotFoundError(
+        "Tidak menemukan file main_data.csv. Lokasi yang dicoba:\n"
+        f"{searched_paths}"
+    )
+
+
+main_data = load_main_data()
 
 # Pastikan kolom datetime
 main_data['dteday'] = pd.to_datetime(main_data['dteday'])
